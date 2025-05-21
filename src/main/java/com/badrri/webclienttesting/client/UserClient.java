@@ -27,11 +27,9 @@ public class UserClient {
             .build();
     }
 
-    public List<User> getUsers() {
-        final List<UserApiResponseEntity> userApiResponseEntities = restClient.get()
+    public List<UserApiResponseEntity> getUsers() {
+        return restClient.get()
             .retrieve()
             .body(new ParameterizedTypeReference<>() {});
-
-        return UserMapper.convert(userApiResponseEntities);
     }
 }
